@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Maven Repository MCP Server
- * A Model Context Protocol server that provides functionality to search mvnrepository.com
- */
-
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
@@ -124,7 +119,9 @@ class MavenRepositoryServer {
                     },
                 ],
             };
-        }); this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+        }); 
+        
+        this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
             const { name, arguments: args } = request.params;
 
             if (!args || typeof args !== 'object') {
@@ -176,7 +173,9 @@ class MavenRepositoryServer {
                     throw new Error(`Unknown tool: ${name}`);
             }
         });
-    } private async searchMavenArtifacts(query: string, maxResults: number): Promise<any> {
+    } 
+    
+    private async searchMavenArtifacts(query: string, maxResults: number): Promise<any> {
         try {
             const result: SearchResult = await this.searcher.searchArtifacts(query, maxResults);
 
@@ -309,7 +308,9 @@ class MavenRepositoryServer {
             await this.server.close();
             process.exit(0);
         });
-    } async runStdio(): Promise<void> {
+    } 
+    
+    async runStdio(): Promise<void> {
         const transport = new StdioServerTransport();
         await this.server.connect(transport);
         console.error("Maven Repository MCP server running on stdio");

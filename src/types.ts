@@ -1,7 +1,3 @@
-/**
- * Types and interfaces for Maven Repository MCP Server
- */
-
 export interface MavenArtifact {
     groupId: string;
     artifactId: string;

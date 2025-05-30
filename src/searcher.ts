@@ -1,7 +1,3 @@
-/**
- * Maven Repository search utilities
- */
-
 import { MavenArtifact, SearchResult, ArtifactVersions, ArtifactVersion, DependencySnippet } from './types.js';
 import axios, { AxiosInstance } from 'axios';
 import * as cheerio from 'cheerio';

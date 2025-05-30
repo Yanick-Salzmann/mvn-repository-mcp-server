@@ -1,0 +1,110 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build TypeScript",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Build and Watch",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build:watch"
+			],
+			"group": "build",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Start Server (stdio)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start:stdio"
+			],
+			"group": "test",
+			"dependsOn": "Build TypeScript",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Start Server (SSE)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"start:sse"
+			],
+			"group": "test",
+			"dependsOn": "Build TypeScript",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Dev (Build and Start - stdio)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev:stdio"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Dev (Build and Start - SSE)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev:sse"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		}
+	]
+}

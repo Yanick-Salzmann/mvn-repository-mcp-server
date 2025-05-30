@@ -1,0 +1,42 @@
+{
+  "name": "mvn-repository-mcp-server",
+  "version": "0.0.1",
+  "description": "A MCP server that offers functionality to search mvnrepository.com ",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:stdio": "node dist/index.js stdio",
+    "start:sse": "node dist/index.js sse",
+    "start:sse:custom": "node dist/index.js sse --port",
+    "dev": "npm run build && npm run start",
+    "dev:stdio": "npm run build && npm run start:stdio",
+    "dev:sse": "npm run build && npm run start:sse",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "ai",
+    "copilot",
+    "maven",
+    "mvn",
+    "mvnrepository"
+  ],
+  "author": "Yanick Salzmann",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "@types/cheerio": "^1.0.0",
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "commander": "^14.0.0"
+  }
+}

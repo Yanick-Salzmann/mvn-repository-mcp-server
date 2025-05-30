@@ -1,9 +1,28 @@
 {
   "name": "mvn-repository-mcp-server",
   "version": "0.0.1",
-  "description": "A MCP server that offers functionality to search mvnrepository.com ",
+  "description": "A MCP server that offers functionality to search mvnrepository.com",
   "main": "dist/index.js",
   "type": "module",
+  "bin": {
+    "mvn-repository-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yanick-Salzmann/mvn-repository-mcp-server.git"
+  },
+  "homepage": "https://github.com/Yanick-Salzmann/mvn-repository-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/Yanick-Salzmann/mvn-repository-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
@@ -15,6 +34,7 @@
     "dev:stdio": "npm run build && npm run start:stdio",
     "dev:sse": "npm run build && npm run start:sse",
     "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

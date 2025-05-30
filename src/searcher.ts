@@ -41,7 +41,7 @@ export class MavenRepositorySearcher {
         const now = Date.now();
         const timeSinceLastRequest = now - this.lastRequestTime;
         const minDelay = 3000; // Minimum 3 seconds between requests
-        const randomDelay = Math.random() * 4000 + 2000; // 2-6 seconds additional random delay
+        const randomDelay = Math.random() * 2000; // up to 2 seconds random delay
         
         if (timeSinceLastRequest < minDelay) {
             await this.delay(minDelay - timeSinceLastRequest + randomDelay);
@@ -72,7 +72,7 @@ export class MavenRepositorySearcher {
                 console.log(`Got 403, retrying in ${(retryCount + 1) * 5} seconds... (attempt ${retryCount + 1}/${maxRetries})`);
                 
                 // Exponential backoff with jitter
-                const backoffTime = (retryCount + 1) * 5000 + Math.random() * 3000;
+                const backoffTime = retryCount * 5000 + Math.random() * 3000;
                 await this.delay(backoffTime);
                 
                 return this.makeRequest(url, retryCount + 1);
